@@ -18,6 +18,15 @@ public class WeaponAttributes : MonoBehaviour
             // - Logic chết
             atm.DealDamage(other.gameObject);
         }
+        // Kiểm tra va chạm với Player
+        if (other.CompareTag("Player"))
+        {
+            // GỌI DealDamage để áp dụng:
+            // - Damage cơ bản
+            // - Critical Hit
+            // - Logic chết
+            atm.DealDamage(other.gameObject);
+        }
     }
 
 }
