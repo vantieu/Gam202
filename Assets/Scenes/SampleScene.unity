@@ -1389,19 +1389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttributes
   atm: {fileID: 1170927604}
---- !u!114 &701046689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701046684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a2378cce4df91e47a8d7708636529cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
-  weapon: {fileID: 0}
 --- !u!65 &701046690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2455,10 +2442,10 @@ GameObject:
   - component: {fileID: 1170927596}
   - component: {fileID: 1170927598}
   - component: {fileID: 1170927597}
+  - component: {fileID: 1170927604}
   - component: {fileID: 1170927599}
   - component: {fileID: 1170927603}
   - component: {fileID: 1170927602}
-  - component: {fileID: 1170927604}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2475,7 +2462,7 @@ Transform:
   m_GameObject: {fileID: 1170927595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.62793, y: 0.53, z: 53.03}
+  m_LocalPosition: {x: 23.62793, y: 0, z: 53.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2530,11 +2517,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2893,9 +2880,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 057373df03c5ddb4d80eb9e5267f1ea2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 701046688}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 057373df03c5ddb4d80eb9e5267f1ea2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 701046689}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 057373df03c5ddb4d80eb9e5267f1ea2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 701046690}
