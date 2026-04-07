@@ -5,7 +5,7 @@ public class WeaponAttributes : MonoBehaviour
     // Attributes của người chơi (Player)
     // Kéo Player (Ninja) có AttributesManager vào đây
     public AttributesManager atm;
-
+    // public GameObject Player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,8 +25,14 @@ public class WeaponAttributes : MonoBehaviour
             // - Damage cơ bản
             // - Critical Hit
             // - Logic chết
+            // atm = Player.GetComponent<AttributesManager>();
             atm.DealDamage(other.gameObject);
         }
     }
 
+    // public void damage()
+    // {
+    //     atm = Player.GetComponent<AttributesManager>();
+    //     atm.DealDamage(Player);
+    // }
 }

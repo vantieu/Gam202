@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -37,4 +38,8 @@ public class EnemyController : MonoBehaviour
         controller.Move(Vector3.up * yVelocity * Time.deltaTime);
     }
 
+    public void OnTriggerEnter(Collider orther)
+    {
+
+    }
 }
