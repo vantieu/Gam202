@@ -37,9 +37,4 @@ public class EnemyController : MonoBehaviour
         // CHỈ MOVE THEO TRỤC Y
         controller.Move(Vector3.up * yVelocity * Time.deltaTime);
     }
-
-    public void OnTriggerEnter(Collider orther)
-    {
-
-    }
 }
