@@ -52,15 +52,16 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 /warnaserror+:NU1605
 
 [sourceFiles]
-Assets/Bitgem/StylisedWater/URP/Scripts/Bitgem/
- Core/FlagEnumAttribute.cs
- VFX/StylisedWater/
-  WaterVolumeBase.cs
-  WaterVolumeBox.cs
-  WaterVolumeHelper.cs
-  WaterVolumeTransforms.cs
-  WateverVolumeFloater.cs
 Assets/
+ AC Little Enchant Mesh VFX/Demo/Demo Script/DemoScript.cs
+ Bitgem/StylisedWater/URP/Scripts/Bitgem/
+  Core/FlagEnumAttribute.cs
+  VFX/StylisedWater/
+   WaterVolumeBase.cs
+   WaterVolumeBox.cs
+   WaterVolumeHelper.cs
+   WaterVolumeTransforms.cs
+   WateverVolumeFloater.cs
  FantasyEnvironments/Environments/Town/Scripts/Door.cs
  Invector-3rdPersonController_LITE/
   3D Models/Others/HealthItem/vAnimateUV.cs
@@ -100,6 +101,9 @@ Assets/
     EnemyController.cs
     IdleState.cs
     WalkState.cs
+  Gempickup.cs
+  PlayerGem.cs
+  SimpleGemsAnim.cs
   WeaponAttributes.cs
   WeaponManager.cs
  TextMesh Pro/Examples & Extras/Scripts/

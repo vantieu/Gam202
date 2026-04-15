@@ -6,12 +6,12 @@ public class AttributesManager : MonoBehaviour
 {
     public int health; // Máu hiện tại của nhân vật
 
-
     public int attack;// Sát thương tấn công cơ bản
 
     [Header("ENEMY Die")]
     bool isDead = false;
 
+    public GameObject gemPrefab;
     // ====== ĐÒN CHÍ MẠNG (CRITICAL HIT) ======
 
 
@@ -114,40 +114,23 @@ public class AttributesManager : MonoBehaviour
         // Trừ máu theo lượng sát thương nhận vào
         health -= amount;
 
-        // Kiểm tra nếu máu <= 0 thì nhân vật chết
-        // if (health <= 0)
-        // {
-        //     // In ra tên GameObject để biết ai đã chết
-        //     EnemyDie();
-        // }
-
-        // if (gameObject.CompareTag("Enemy")) // Nếu là kẻ thù
-        // {
-        //     Slider slider = gameObject.transform
-        //         .GetChild(1).transform // lấy canvas
-        //         .GetChild(0).transform // Lấy tới HeathBar
-        //         .GetComponent<Slider>(); // Lấy component Slider
-
-        //     slider.value = health; // cập nhật giá trị slider
-
-        //     if (health <= 0) // Khi máu bằng 0
-        //     {
-        //         EnemyDie();
-        //     }
-        // }
-
         // Nếu không phải Enemy thì không xử lý UI
-        if (!CompareTag("Enemy")) return;
+        // Cập nhật thanh máu nếu là Enemy
+        if (CompareTag("Enemy"))
+        {
+            if (healthSlider != null)
+                healthSlider.value = health;
+        }
 
-
-        // Cập nhật giá trị thanh máu
-        if (healthSlider != null)
-            healthSlider.value = health;
-
-
-        // Nếu máu <= 0 → chết
+        // Nếu máu <= 0
         if (health <= 0)
-            EnemyDie();
+        {
+            if (CompareTag("Enemy"))
+                EnemyDie();
+
+            if (CompareTag("Player"))
+                PlayerDie();
+        }
 
     }
 
@@ -233,6 +216,21 @@ public class AttributesManager : MonoBehaviour
         }
 
         // =======================
+        // 4. SPAWM GEM
+        // =======================
+
+        if (gemPrefab != null)
+        {
+            GameObject gem = Instantiate(
+                gemPrefab,
+                transform.position + Vector3.up * 0.5f,
+                Quaternion.identity
+            );
+            gem.SetActive(true);
+        }
+
+
+        // =======================
         // 6. HỦY ENEMY
         // =======================
 
@@ -240,6 +238,41 @@ public class AttributesManager : MonoBehaviour
         // → Đủ thời gian cho animation chết chạy xong
         Destroy(gameObject, 2f);
     }
+
+    void PlayerDie()
+    {
+        Debug.Log("Player Dead");
+
+
+        // Tắt controller
+        var cc = GetComponent<CharacterController>();
+        if (cc != null) cc.enabled = false;
+
+
+        // Tắt movement script khác
+        var scripts = GetComponents<MonoBehaviour>();
+        foreach (var s in scripts)
+        {
+            if (s != this) s.enabled = false;
+        }
+
+
+        // Play animation chết
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+            anim.SetTrigger("Dead");
+
+        // Tắt NavMeshAgent an toàn
+        var agent = GetComponent<NavMeshAgent>();
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+        }
+
+        // Destroy object sau 3s
+        Destroy(gameObject, 3f);
+    }
+
 
 
     // ====== GÂY SÁT THƯƠNG ======
